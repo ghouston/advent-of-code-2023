@@ -67,10 +67,11 @@ end
 
 puts "part 1, pain ruby:"
 puts Benchmark.measure { part1 }
-
+puts
 
 puts "part 1, ractors v1:"
 puts Benchmark.measure { part1_ractors_v1 }
+puts
 
 puts "part 1, ractors v2:"
 puts Benchmark.measure { part1_ractors_v2 }
