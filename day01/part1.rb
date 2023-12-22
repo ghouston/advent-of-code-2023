@@ -1,5 +1,9 @@
 require 'benchmark'
 
+# note: this is just a learning exercise.  ractor doesnt have an advantage on a problem this small.
+# however this does demonstrate fan out the work across ractors and then collecting and summing the results.
+
+# plain ruby solution
 def part1
   total = 0
   File.open("2023_day_1_input.txt", "r").each do |line|
@@ -10,6 +14,7 @@ def part1
   puts total
 end
 
+# ractor solution v1. 1 ractor per line, then collect the results.
 def part1_ractors_v1
     ractors = []
     File.open("2023_day_1_input.txt", "r").each do |line|
@@ -35,6 +40,7 @@ def parse_line(line)
   10*first + last
 end
 
+# ractor solution v2. 10 worker ractors since an m1 macbook has 10 cores.
 def part1_ractors_v2
   pipe = Ractor.new do
     loop do
